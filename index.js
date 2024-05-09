@@ -2,7 +2,8 @@ const http = require('http');
 const url = require('url');
 
 const port = 3000;
-const redirectUrl = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+const redirectScam = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+const redirectAnixart = 'https://github.com/seele-off/anixart/releases/download/anixart-default-mod/Anixart_v8.2.1_Default.apk';
 
 const server = http.createServer((req, res) => {
     const parsedUrl = url.parse(req.url, true);
@@ -10,17 +11,22 @@ const server = http.createServer((req, res) => {
 
     if (pathname === '/') {
         res.writeHead(302, {
-            'Location': redirectUrl,
+            'Location': redirectScam,
+        });
+        res.end();
+    } else if (pathname === '/anixart') {
+        res.writeHead(302, {
+            'Location': redirectAnixart,
         });
         res.end();
     } else {
         res.writeHead(404, {
             'Content-Type': 'text/html',
         });
-        res.end('<h1>Страница не найдена</h1>');
+        res.end('<h1>404</h1>');
     }
 });
 
 server.listen(port, () => {
-    console.log(`Сервер запущен на порту ${port}`);
+    console.log(`App listen on ${port} port`);
 });
