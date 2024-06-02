@@ -3,7 +3,7 @@ const url = require('url');
 
 const port = 3000;
 const redirectScam = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
-const redirectAnixart = 'https://github.com/seele-off/anixart/releases/download/anixart-default-mod/Anixart_v8.2.1_Default.apk';
+const redirectAnixart = 'https://github.com/seele-off/anixart/releases/download/anixart-default/Anixart-Default-v1.0-by-Seele.apk';
 
 const server = http.createServer((req, res) => {
     const parsedUrl = url.parse(req.url, true);
